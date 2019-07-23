@@ -1,0 +1,5 @@
+appname: hello
+
+parent:
+  - child1: 'child1'
+  - child2: 'child2'
