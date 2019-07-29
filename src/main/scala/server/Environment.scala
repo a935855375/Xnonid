@@ -54,9 +54,9 @@ case class Environment(rootPath: File, classLoader: ClassLoader, mode: Mode) {
     * The conf directory is included on the classpath, so this may be used to look up resources, relative to the conf
     * directory.
     *
-    * For example, to retrieve the conf/logback.xml configuration file:
+    * For example, to retrieve the conf/logback-dev.xml configuration file:
     * {{{
-    * val maybeConf = application.resource("logback.xml")
+    * val maybeConf = application.resource("logback-dev.xml")
     * }}}
     *
     * @param name the absolute name of the resource (from the classpath root)
@@ -73,9 +73,9 @@ case class Environment(rootPath: File, classLoader: ClassLoader, mode: Mode) {
     * The conf directory is included on the classpath, so this may be used to look up resources, relative to the conf
     * directory.
     *
-    * For example, to retrieve the conf/logback.xml configuration file:
+    * For example, to retrieve the conf/logback-dev.xml configuration file:
     * {{{
-    * val maybeConf = application.resourceAsStream("logback.xml")
+    * val maybeConf = application.resourceAsStream("logback-dev.xml")
     * }}}
     *
     * @param name the absolute name of the resource (from the classpath root)

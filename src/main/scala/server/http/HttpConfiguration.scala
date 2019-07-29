@@ -11,6 +11,7 @@ import javax.inject.Singleton
 import org.slf4j.LoggerFactory
 import server._
 import server.core.encoding.{ClientCookieDecoder, ClientCookieEncoder, ServerCookieDecoder, ServerCookieEncoder}
+import server.libs.Codecs
 import server.mvc.Cookie.SameSite
 
 import scala.concurrent.duration._

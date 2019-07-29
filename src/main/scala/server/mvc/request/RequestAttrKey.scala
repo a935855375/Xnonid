@@ -1,7 +1,7 @@
 package server.mvc.request
 
 import server.libs.typedmap.TypedKey
-import server.mvc.Cookies
+import server.mvc.{Cookies, Flash, Session}
 
 /**
   * Keys to request attributes.
@@ -18,18 +18,18 @@ object RequestAttrKey {
     * [[server.mvc.Cookies]] in it.
     */
   val Cookies = TypedKey[Cell[Cookies]]("Cookies")
-//
-//  /**
-//    * The key for the request attribute storing a [[Cell]] with
-//    * the [[play.api.mvc.Session]] cookie in it.
-//    */
-//  val Session = TypedKey[Cell[Session]]("Session")
-//
-//  /**
-//    * The key for the request attribute storing a [[Cell]] with
-//    * the [[play.api.mvc.Flash]] cookie in it.
-//    */
-//  val Flash = TypedKey[Cell[Flash]]("Flash")
+
+  /**
+    * The key for the request attribute storing a [[Cell]] with
+    * the [[server.mvc.Session]] cookie in it.
+    */
+  val Session = TypedKey[Cell[Session]]("Session")
+
+  /**
+    * The key for the request attribute storing a [[Cell]] with
+    * the [[server.mvc.Flash]] cookie in it.
+    */
+  val Flash = TypedKey[Cell[Flash]]("Flash")
 //
 //  /**
 //    * The key for the request attribute storing the server name.

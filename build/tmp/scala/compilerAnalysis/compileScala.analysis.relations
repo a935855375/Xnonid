@@ -1,0 +1,38 @@
+products:
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\DiscardServer$$anon$1.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\DiscardServer.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\DiscardServerHandler.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\HttpServer$$anon$1.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\HttpServer.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\HttpServerHandler.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\Main$.class
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> C:\Users\93585\IdeaProjects\Xnonid\build\classes\scala\main\Main.class
+binary dependencies:
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.1.37.Final\2ebb0c5f1b3b870867d6651b4da91d42043589e1\netty-all-4.1.37.Final.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.12.8\36b234834d8f842cdde963c8591efae6cf413e3f\scala-library-2.12.8.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> D:\jdk\jre\lib\rt.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.1.37.Final\2ebb0c5f1b3b870867d6651b4da91d42043589e1\netty-all-4.1.37.Final.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.12.8\36b234834d8f842cdde963c8591efae6cf413e3f\scala-library-2.12.8.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala -> D:\jdk\jre\lib\rt.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.1.37.Final\2ebb0c5f1b3b870867d6651b4da91d42043589e1\netty-all-4.1.37.Final.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.12.8\36b234834d8f842cdde963c8591efae6cf413e3f\scala-library-2.12.8.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> D:\jdk\jre\lib\rt.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.1.37.Final\2ebb0c5f1b3b870867d6651b4da91d42043589e1\netty-all-4.1.37.Final.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.12.8\36b234834d8f842cdde963c8591efae6cf413e3f\scala-library-2.12.8.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala -> D:\jdk\jre\lib\rt.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> C:\Users\93585\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.12.8\36b234834d8f842cdde963c8591efae6cf413e3f\scala-library-2.12.8.jar
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> D:\jdk\jre\lib\rt.jar
+source dependencies:
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala
+external dependencies:
+class names:
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> DiscardServer
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServer.scala -> DiscardServer$$anon$1
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\DiscardServerHandler.scala -> DiscardServerHandler
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> HttpServer
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServer.scala -> HttpServer$$anon$1
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\HttpServerHandler.scala -> HttpServerHandler
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> Main
+   C:\Users\93585\IdeaProjects\Xnonid\src\main\scala\Main.scala -> Main$

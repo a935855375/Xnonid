@@ -1,8 +1,11 @@
 package server.mvc
 
-import server.http.HeaderNames
+import java.util.Locale
+
+import server.http.{HeaderNames, MediaRange, MediaType}
+import server.i18n.{Lang, Messages}
 import server.libs.typedmap.{TypedKey, TypedMap}
-import server.mvc.request.{RemoteConnection, RequestAttrKey}
+import server.mvc.request.{RemoteConnection, RequestAttrKey, RequestTarget}
 
 import scala.annotation.implicitNotFound
 
@@ -188,32 +191,28 @@ trait RequestHeader {
     * The Request Langs extracted from the Accept-Language header and sorted by preference (preferred first).
     */
 
-  // todo add
-  //  lazy val acceptLanguages: Seq[play.api.i18n.Lang] = {
-  //    val langs =
-  //      RequestHeader.acceptHeader(headers, HeaderNames.ACCEPT_LANGUAGE).map(item => (item._1, Lang.get(item._2)))
-  //    langs.sortWith((a, b) => a._1 > b._1).flatMap(_._2)
-  //  }
+  lazy val acceptLanguages: Seq[server.i18n.Lang] = {
+    val langs =
+      RequestHeader.acceptHeader(headers, HeaderNames.ACCEPT_LANGUAGE).map(item => (item._1, Lang.get(item._2)))
+    langs.sortWith((a, b) => a._1 > b._1).flatMap(_._2)
+  }
 
   /**
     * @return The media types list of the request’s Accept header, sorted by preference (preferred first).
     */
 
-  // todo add
-  //  lazy val acceptedTypes: Seq[play.api.http.MediaRange] = {
-  //    headers.get(HeaderNames.ACCEPT).toSeq.flatMap(MediaRange.parse.apply)
-  //  }
-
+  lazy val acceptedTypes: Seq[server.http.MediaRange] = {
+    headers.get(HeaderNames.ACCEPT).toSeq.flatMap(MediaRange.parse.apply)
+  }
 
   /**
     * Check if this request accepts a given media type.
     *
     * @return true if `mimeType` matches the Accept header, otherwise false
     */
-  // todo add
-  //  def accepts(mimeType: String): Boolean = {
-  //    acceptedTypes.isEmpty || acceptedTypes.exists(_.accepts(mimeType))
-  //  }
+  def accepts(mimeType: String): Boolean = {
+    acceptedTypes.isEmpty || acceptedTypes.exists(_.accepts(mimeType))
+  }
 
   /**
     * The HTTP cookies. The request's cookies are stored in an attribute indexed by
@@ -222,6 +221,101 @@ trait RequestHeader {
     */
   def cookies: Cookies = attrs(RequestAttrKey.Cookies).value
 
+  /**
+    * Parses the `Session` cookie and returns the `Session` data. The request's session cookie is stored in an attribute indexed by
+    * [[server.mvc.request.RequestAttrKey.Session]]. The attribute uses a [[server.mvc.request.Cell]] to store the session cookie, to allow it to be evaluated on-demand.
+    */
+  def session: Session = attrs(RequestAttrKey.Session).value
+
+  /**
+    * Parses the `Flash` cookie and returns the `Flash` data. The request's flash cookie is stored in an attribute indexed by
+    * [[server.mvc.request.RequestAttrKey.Flash]]. The attribute uses a [[server.mvc.request.Cell]] to store the flash, to allow it to be evaluated on-demand.
+    */
+  def flash: Flash = attrs(RequestAttrKey.Flash).value
+
+  /**
+    * Returns the raw query string. This method delegates to `connection.rawQueryString`.
+    */
+  def rawQueryString: String = target.queryString
+
+  /**
+    * The media type of this request.  Same as contentType, except returns a fully parsed media type with parameters.
+    */
+  lazy val mediaType: Option[MediaType] = headers.get(HeaderNames.CONTENT_TYPE).flatMap(MediaType.parse.apply)
+
+  /**
+    * Returns the value of the Content-Type header (without the parameters (eg charset))
+    */
+  lazy val contentType: Option[String] = mediaType.map(mt => mt.mediaType + "/" + mt.mediaSubType)
+
+  /**
+    * Returns the charset of the request for text-based body
+    */
+  lazy val charset: Option[String] = for {
+    mt <- mediaType
+    param <- mt.parameters.find(_._1.equalsIgnoreCase("charset"))
+    charset <- param._2
+  } yield charset
+
+  /**
+    * Attach a body to this header.
+    *
+    * @param body The body to attach.
+    * @tparam A The type of the body.
+    * @return A new request with the body attached to the header.
+    */
+  def withBody[A](body: A): Request[A] =
+    new RequestImpl[A](connection, method, target, version, headers, attrs, body)
+
+  /**
+    * Create a new versions of this object with the given transient language set.
+    * The transient language will be taken into account when using [[server.i18n.MessagesApi.preferred()]] (It will take precedence over any other language).
+    *
+    * @param lang The language to use.
+    * @return The new version of this object with the given transient language set.
+    */
+  def withTransientLang(lang: Lang): RequestHeader =
+    addAttr(Messages.Attrs.CurrentLang, lang)
+
+  /**
+    * Create a new versions of this object with the given transient language set.
+    * The transient language will be taken into account when using [[server.i18n.MessagesApi.preferred()]] (It will take precedence over any other language).
+    *
+    * @param code The language to use.
+    * @return The new version of this object with the given transient language set.
+    */
+  def withTransientLang(code: String): RequestHeader =
+    withTransientLang(Lang(code))
+
+  /**
+    * Create a new versions of this object with the given transient language set.
+    * The transient language will be taken into account when using [[server.i18n.MessagesApi.preferred()]] (It will take precedence over any other language).
+    *
+    * @param locale The language to use.
+    * @return The new version of this object with the given transient language set.
+    */
+  def withTransientLang(locale: Locale): RequestHeader =
+    withTransientLang(Lang(locale))
+
+  /**
+    * Create a new versions of this object with the given transient language removed.
+    *
+    * @return The new version of this object with the transient language removed.
+    */
+  def withoutTransientLang(): RequestHeader =
+    removeAttr(Messages.Attrs.CurrentLang)
+
+  /**
+    * The transient language will be taken into account when using [[server.i18n.MessagesApi.preferred()]] (It will take precedence over any other language).
+    *
+    * @return The current transient language of this request.
+    */
+  def transientLang(): Option[Lang] =
+    attrs.get(Messages.Attrs.CurrentLang)
+
+  override def toString: String = {
+    method + " " + uri
+  }
 }
 
 object RequestHeader {

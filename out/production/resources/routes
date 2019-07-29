@@ -1,0 +1,3 @@
+GET        /test             controllers.Api.test
+
+GET        /test2/:id        controllers.Api.test2(id: Int)

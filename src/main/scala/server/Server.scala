@@ -11,8 +11,8 @@ import akka.actor.CoordinatedShutdown
 import akka.stream.Materializer
 import javax.xml.XMLConstants
 import javax.xml.parsers.SAXParserFactory
-import server.core.utils.Threads
 import server.libs.XML.Constants
+import server.utils.Threads
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}

@@ -22,10 +22,10 @@ dependencies {
     // Scala dependencies
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.12.8'
     compile group: 'org.scala-lang.modules', name: 'scala-xml_2.12', version: '1.2.0'
-    
+
     // DI framework
     compile group: 'com.google.inject', name: 'guice', version: '4.2.2'
-    
+
     // Netty http server
     compile group: 'io.netty', name: 'netty-all', version: '4.1.37.Final'
     compile group: 'io.netty', name: 'netty-transport-native-kqueue', version: '4.1.37.Final', classifier: 'osx-x86_64'
@@ -39,9 +39,22 @@ dependencies {
 
     // Logger
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.26'
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.26'
+    compile group: 'com.typesafe.play', name: 'play-logback_2.12', version: '2.7.3'
 
     // Jwt support
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+    // Json support
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.9.8'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.8'
+    compile group: 'com.typesafe.play', name: 'play-json_2.12', version: '2.7.4'
+
+    // Twirl html template
+    compile group: 'com.typesafe.play', name: 'twirl-api_2.12', version: '1.4.2'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

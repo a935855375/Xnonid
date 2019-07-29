@@ -9,7 +9,8 @@ import java.util.concurrent.TimeUnit
 import com.typesafe.config._
 import com.typesafe.config.impl.ConfigImpl
 import server.core.exception.PlayException
-import server.core.utils.{PlayIO, StringEscapeUtils}
+import server.core.utils.StringEscapeUtils
+import server.utils.PlayIO
 
 import scala.collection.JavaConverters._
 import scala.concurrent.duration.{Duration, FiniteDuration}
@@ -150,7 +151,7 @@ object Configuration {
     */
   def apply(data: (String, Any)*): Configuration = from(data.toMap)
 
-  private[api] def configError(
+  private[server] def configError(
                                 message: String,
                                 origin: Option[ConfigOrigin] = None,
                                 e: Option[Throwable] = None

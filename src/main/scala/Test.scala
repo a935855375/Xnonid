@@ -1,4 +1,4 @@
-import server.router.RouterParser
+import server.routing.RouterParser
 
 object Test extends App {
   val router = new RouterParser

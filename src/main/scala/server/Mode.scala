@@ -5,15 +5,15 @@ package server
   *
   * @see [[server.Mode]]
   */
-sealed abstract class Mode(val asJava: server.core.utils.Mode)
+sealed abstract class Mode(val asJava: utils.Mode)
 
 object Mode {
 
-  case object Dev extends server.Mode(server.core.utils.Mode.DEV)
+  case object Dev extends server.Mode(utils.Mode.DEV)
 
-  case object Test extends server.Mode(server.core.utils.Mode.TEST)
+  case object Test extends server.Mode(utils.Mode.TEST)
 
-  case object Prod extends server.Mode(server.core.utils.Mode.PROD)
+  case object Prod extends server.Mode(utils.Mode.PROD)
 
   lazy val values: Set[server.Mode] = Set(Dev, Test, Prod)
 }

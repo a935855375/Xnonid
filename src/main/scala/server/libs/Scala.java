@@ -8,7 +8,7 @@ import akka.japi.JavaPartialFunction;
 import scala.compat.java8.FutureConverters;
 import scala.concurrent.Future;
 import scala.runtime.AbstractFunction0;
-import server.core.utils.Conversions;
+import server.utils.Conversions;
 
 import java.lang.reflect.Array;
 import java.util.Collection;

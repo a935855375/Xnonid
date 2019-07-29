@@ -11,7 +11,7 @@ import scala.util.{Failure, Success}
 
 // Keep Crypto around to manage global state for now...
 @deprecated("Access global state. Inject a CookieSigner instead", "2.7.0")
-private[play] object Crypto {
+private[server] object Crypto {
 
   private val cookieSignerCache: Application => CookieSigner = Application.instanceCache[CookieSigner]
 
